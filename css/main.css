@@ -1,0 +1,191 @@
+/* reset*/
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*estilos generales*/
+
+body{
+    background: color #eceef3;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* estilos de header*/
+
+header{
+    display: none;
+}
+
+/* estilos de main*/
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main h2{
+    text-align: center;
+    color: #182941;
+    margin: 1rem;
+}
+
+
+
+main h2 span{
+    display: block;
+}
+
+main p{
+    text-align: center;
+}
+
+main .boton{
+    background-color: #51B0DF;
+    padding: 0.6rem;
+    margin-top: 1rem;
+    box-shadow: 2px 2px 2px black;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 0.15rem;
+}
+
+/*estilos de seccion*/
+
+section{
+    display: none;
+}
+
+/*estilos de footer*/
+
+footer h4{
+    text-align: center;
+}
+
+/* media queries...el hover es para las pantallas que son con un mouse..para celulares no*/
+
+@media screen and (min-width: 600px){
+    header{
+        display: block;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    header nav ul{
+        display: flex;
+        list-style: none;
+        gap: 1rem;
+    }
+    header nav ul li{
+        font-weight: bold; 
+
+        /* tiempo que quiero que se mueva cuando pongo el mouse sobre un texto o titulo
+        transition: 1s; */      
+    }
+    
+    header nav ul li:hover{
+        background-color: #51B0DF;
+        transform: scale(0.9);
+        box-shadow: 1px 1px 3px black;
+
+
+        /* con esta opcion le doy color de fondo al menu
+        background-color: rgb(221, 159, 221); */
+        
+        /* con esta opcion permite rotar segun lo asignado el titulo
+        transform: rotate(180deg);     */  
+        
+    }
+
+
+    /* estilos nuevos del main*/
+    main{
+        height: 70vh;
+        padding: 1rem;
+        display: grid;
+        grid-template-columns: repeat(2,2fr);
+        grid-template-rows: 0.5fr 1fr 0.5fr 0.5fr;
+        grid-template-areas: 
+        "p img"
+        "h2 img"
+        "p-dos img"
+        "boton img";
+        justify-content: center;
+        justify-items: center;
+    }
+
+    main p{
+        grid-area: p;        
+    }
+
+    main img{
+        grid-area: img; 
+        width: 60%;  
+        /*con esta propiedad puedo darle sombra o sombreado a una imagen*/
+        filter: drop-shadow(8px 5px 2px black);    
+    }
+    main h2{
+        grid-area: h2;  
+        font-size: 1.7rem;      
+    }
+    main .p-dos{
+        grid-area: p-dos;        
+    }
+    main .boton{
+        grid-area: boton;            
+    }
+
+    main .boton:hover{
+        transform: scale(1.1);
+    }
+
+    /*estilos de section*/
+
+    section{
+        background-color: #BEE0F1;
+        display: block;
+        display: flex;
+        justify-content: center;
+        padding: 1rem;       
+       
+    }
+
+    section div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;        
+    }
+
+    section div img{
+        width: 20%;
+        filter: drop-shadow(8px 5px 2px black);
+        /* (funcionan solas..no necesito hover)..como hacer las animaciones en una imagen, texto,,,titulo..lo que quiera..lo ideal es llamar la atencion del usuario*/
+        animation-name: animacion-ejemplo;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+    }
+/* cuando ya doy las cualidades como arriba de animation..abajo creo obligatoriamente el keyframes..lo puedo hacer para cualquier lado X O Y */
+        @keyframes animacion-ejemplo{
+            from{
+                transform: translateY(0);                
+            } 
+            to{
+                transform: translateY(6px);
+            }  
+          }
+
+    section div p{
+        text-align: center;
+    }
+    /*estilos de footer*/
+
+    footer{
+        margin-top: 1.03rem;
+    }
+}
+
+
